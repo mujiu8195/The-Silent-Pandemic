@@ -648,7 +648,7 @@ body {
 .slider-handle {
     width: 100px; /* 根据 slider.svg 的尺寸调整宽度 */
     height: 100px; /* 根据 slider.svg 的尺寸调整高度 */
-    background-image: url('/image/frame-console/slider.svg'); /* 使用 slider.svg 作为背景图像 */
+    background-image: url('image/frame-console/slider.svg'); /* 使用 slider.svg 作为背景图像 */
     background-size: contain; /* 确保图像完全显示 */
     background-repeat: no-repeat;
     background-position: center; /* 图像居中 */
@@ -703,39 +703,39 @@ body {
 
 /* 初始背景图 */
 .button1 {
-    background-image: url('/image/frame-console/Government Button.svg');
+    background-image: url('image/frame-console/Government Button.svg');
 }
 
 .button2 {
-    background-image: url('/image/frame-console/Enterprise Button.svg');
+    background-image: url('image/frame-console/Enterprise Button.svg');
 }
 
 .button3 {
-    background-image: url('/image/frame-console/Public Button.svg');
+    background-image: url('image/frame-console/Public Button.svg');
 }
 
 .button4 {
-    background-image: url('/image/frame-console/Objective Button.svg');
+    background-image: url('image/frame-console/Objective Button.svg');
 }
 
 /* 按下状态背景图 */
 .button.active.button1 {
-    background-image: url('/image/frame-console/Government Button after.svg');
+    background-image: url('image/frame-console/Government Button after.svg');
     background-size: 80%;
 }
 
 .button.active.button2 {
-    background-image: url('/image/frame-console/Enterprise Button after.svg');
+    background-image: url('image/frame-console/Enterprise Button after.svg');
     background-size: 80%;
 }
 
 .button.active.button3 {
-    background-image: url('/image/frame-console/Public Button after.svg');
+    background-image: url('image/frame-console/Public Button after.svg');
     background-size: 80%;
 }
 
 .button.active.button4 {
-    background-image: url('/image/frame-console/Objective Button after.svg');
+    background-image: url('image/frame-console/Objective Button after.svg');
     background-size: 80%;
 }
 
@@ -775,11 +775,11 @@ body {
 
 
 .ok-button:hover .ok-image {
-    content: url('/image/frame-console/ok-active.png'); /* 悬浮时切换到的图片 */
+    content: url('image/frame-console/ok-active.png'); /* 悬浮时切换到的图片 */
   }
   
   .ok-button:active .ok-image {
-    content: url('/image/frame-console/ok-active.png'); /* 点击时切换到的图片 */
+    content: url('image/frame-console/ok-active.png'); /* 点击时切换到的图片 */
   }
 
 
