@@ -1006,7 +1006,7 @@ function triggerBlurAndShowConsole(mapId, clickBox) {
                     // Update displayed image with correct map ID
                     const displayedImage = document.getElementById('displayed-image');
                     if (displayedImage) {
-                        const imagePath = `/image/frame-console/map${mapId}_text/map${mapId}-${clickBoxType}1.svg`;
+                        const imagePath = `image/frame-console/map${mapId}_text/map${mapId}-${clickBoxType}1.svg`;
                         console.log('Setting image path with mapId:', mapId, imagePath);
                         displayedImage.src = imagePath;
                     }
@@ -1145,7 +1145,7 @@ function initConsole() {
         }
 
         if (displayedImage) {
-            const imagePath = `/image/frame-console/map${currentMap}_text/map${currentMap}-${currentButton}${currentSliderPosition + 1}.svg`;
+            const imagePath = `image/frame-console/map${currentMap}_text/map${currentMap}-${currentButton}${currentSliderPosition + 1}.svg`;
             console.log('Setting image path:', imagePath);
             displayedImage.src = imagePath;
         }
