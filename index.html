@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>The Silent Pandemic</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inika:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- 第一个框架，初始显示 -->
+        <div id="frame-1" class="frame active">
+            <div class="title">The Silent Pandemic</div>
+        </div>
+        <!-- 第二个框架，初始隐藏 -->
+        <div id="frame-2" class="frame hidden">
+            <div class="description-container">
+                <div class="description">
+                    It's a hyper-futuristic era, humans no longer need to organise language, everything is done by
+                    AI.<br><br>
+                    There is no longer a need to think about logic, the frequency of speech has become less, and the
+                    content of profound sentences has become shallow and concise ......<br><br>
+                    What would such a society look like?
+                </div>
+            </div>
+            <!-- 开始按钮 -->
+            <div class="start-button">
+                <img src="image/frame-1/START-icon.svg" alt="START Icon">
+            </div>
+        </div>
+        <!-- 地图框架，初始隐藏 -->
+        <div id="frame-map" class="frame hidden">
+            <div id="progress-bar">
+                <!-- Circle 1 -->
+                <div class="circle" id="circle-1">
+                    <div class="number">1</div>
+                </div>
+                <!-- Circle 2 -->
+                <div class="circle" id="circle-2">
+                    <div class="number">2</div>
+                </div>
+                <!-- Circle 3 -->
+                <div class="circle" id="circle-3">
+                    <div class="number">3</div>
+                </div>
+
+                <!-- Divider 1 -->
+                <div class="divider" id="divider-1"></div>
+                <!-- Divider 2 -->
+                <div class="divider" id="divider-2"></div>
+            </div>
+
+            <div class="box">
+                <div id="map1" class="page" data-gif="image/magnifiers_map/frame1.GIF"></div>
+                <div id="map2" class="page" data-gif="image/magnifiers_map/frame2.GIF"></div>
+                <div id="map3" class="page" data-gif="image/magnifiers_map/frame3.GIF"></div>
+            </div>
+            <!-- 用于显示浮动框的容器 -->
+
+            <!-- 地图框架中的 click-box 定义，包含不同的 data-message 内容 -->
+            <div id="click-box-container">
+                <!-- 修复后的 HTML -->
+                <div id="click-box-container">
+                    <!-- Map 1 clickboxes -->
+                    <div class="click-box click-box-left" id="map1-government1" data-map="1" data-messages='[
+                        "A: Have you heard? CommuniTech Innovations has developed a new AI language parser, and it’s really impressive!",
+                        "B: Wow, really? What’s it used for?",
+                        "A: For example, if you go to the service hall and say “apply for a passport”,it can instantly understand whether you want to apply for a new one or renew an old one, without us having to explain for ages.", 
+                        "B: That sounds so convenient! Our department will definitely handle tasks much faster, and we won’t have to keep running back and forth.",
+                        "A: Exactly, Director Li also said that with this, everyone’s work will be much quicker and smoother."
+                    ]' style="left: 21%; top: 35%;"></div>
+
+                    <div class="click-box click-box-left" id="map1-enterprise1" data-map="1" data-messages='[
+                        "A: Recently, CommuniTech Innovations released an AI language parser, and it sounds pretty impressive!",
+                        "B: Oh? What can it do?",
+                        "A: For example, if your boss is angry, it will directly tell you what you should do. I’ve heard it can tailor its advice depending on the person.",
+                        "B: Wow, that sounds like mind reading.",
+                        "A: It really does, a bit creepy, but it seems quite practical.",
+                        "B: Does it charge? I’m thinking of giving it a try."
+                    ]' style="left: 40%; top: 57%;"></div>
+
+                    <div class="click-box click-box-left" id="map1-public1" data-map="1" data-messages='[
+                        "A: I used the interpreter today, and it was super helpful!",
+                        "B: How so?",
+                        "A: I told my daughter that the clothes were done in the washing machine,and the AI instantly added, You need to hang the clothes on the balcony, and after they’re dry, sort them and put them in the wardrobe.",
+                        "B: Wow, that is thorough. If it hadn’t said that, your daughter probably wouldn’t have bothered to collect the clothes, let alone organize them."
+                    ]' style="left: 60%; top: 50%;"></div>
+
+                    <div class="click-box click-box-left" id="map1-objective1" data-map="1" data-messages='[
+                        "A: CommuniTech Innovations has launched an AI language parser. It feels particularly useful!",
+                        "B: Oh?",
+                        "A: I think it analyzes what we say and enriches it?",
+                        "B: How?",
+                        "A: For example, if I say I’m tired, it can tell if I’m tired or in a bad mood and give me some suggestions.",
+                        "B: Doesn’t feel very useful?",
+                        "A: No, no, it will tell people around me so I don’t have to explain everything when people ask.",
+                        "B: It seems kind of useful, I’d like to try it."
+                    ]' style="left: 90%; top: 50%;"></div>
+
+                    <!-- Map 2 clickboxes -->
+                    <div class="click-box click-box-left" id="map2-government1" data-map="2" data-messages='[
+                        "A: Insane swamped. Attack world!",
+                        "B: Terrifying = work stuck, complaining everywhere.",
+                        "A: Heard places. Emergencies a hassle; it takes forever... situation. Director working hard restore happening.",
+                        "B: Hope=Life right now!"
+                    ]' style="left: 76%; top: 72%;"></div>
+
+                    <div class="click-box click-box-right" id="map2-enterprise1" data-map="2" data-messages='[
+                        "A: Return data centre to operate since!",
+                        "B: Projects N delayed this, chasing.",
+                        "A: Exactly. Stressed said integrate AI. If it happens again, the losses will be even worse.",
+                        "B: Hope soon. Anything done!"
+                    ]' style="left: 64%; top: 54%;"></div>
+
+                    <div class="click-box click-box-left" id="map2-public1" data-map="2" data-messages='[
+                        "A: Exploded! Company - so hard. Terrified!",
+                        "B: Resolver hasn’t work days. Phone acting up.",
+                        "A: Talk x understand.",
+                        "B: Same cancel classes. System down. Stressed.",
+                        "A: Hope fix Life..."
+                    ]' style="left: 47%; top: 55%;"></div>
+
+                    <div class="click-box click-box-right" id="map2-objective1" data-map="2" data-messages='[
+                        "A: Bang?!!",
+                        "B: Was. Saw data=hit.",
+                        "C: It-it Return to Silence.",
+                        "A: Attack cyber really.",
+                        "C: Exposed n Resolver.",
+                        "B: Like internet? Imagine...",
+                        "A: Collapsed.",
+                        "B: Falling!!TT"
+                    ]' style="left: 8%; top: 77%;"></div>
+
+                    <!-- Map 3 clickboxes -->
+                    <div class="click-box click-box-left" id="map3-government1" data-map="3" data-messages='[
+                        "A: New G//+SL proj.",
+                        "C: BTR.",
+                        "B: Y, built post speech-loss 10y ago.",
+                        "C: Went. Chose Focus Comm. Turn long -> short: 10c, V imp, draf tmrw, urgent, think, können = -> Urgent: write draft, 10c priority.",
+                        "B: Hard. Why not rslvr?",
+                        "A: Lang revival. Join+learn?"
+                    ]' style="left: 23%; top: 20%;"></div>
+
+                    <div class="click-box click-box-right" id="map3-enterprise1" data-map="3" data-messages='[
+                        "A: BTR? Gov+SL pop.",
+                        "B: Y, boss: Go.",
+                        "C: Went. AI biz sim. 5m: sum+1lang, no fluff.",
+                        "B: Rslvr vibes.",
+                        "A: Boss=AI?",
+                        "C: Nah, lang rev big. Pro trainers.",
+                        "A: Maybe."
+                    ]' style="left: 35%; top: 55%;"></div>
+
+                    <div class="click-box click-box-left" id="map3-public1" data-map="3" data-messages='[
+                        "A: M! B T Lab.",
+                        "B: Oh! N went. Said D probs -> txt.",
+                        "A: Yes! F tried. B4: M,t, porque, et stress. Now: Work, tired.",
+                        "B: Learn = no rslvr?",
+                        "A: Maybe. Wanna try too.",
+                        "B: Same. Rslvr $$ high."
+                    ]' style="left: 58%; top: 51%;"></div>
+
+                    <div class="click-box click-box-right" id="map3-objective1" data-map="3" data-messages='[
+                        "A: B T?",
+                        "B: Y, helped.",
+                        "A: AI? Setup?",
+                        "C: F says gr8. D rslvr. N txt=all.",
+                        "B: Simlr - A q, r t = Q in lim.",
+                        "A: Lang++? R?",
+                        "B: N. Try.",
+                        "C: M? Hlp?"
+                    ]' style="left: 73%; top: 66%;"></div>
+                </div>
+
+
+                <div class="progress-ring-container" id="progress-ring-container">
+                    <div class="magnifier" id="magnifier">
+                        <img src="" alt="Magnified Content" class="magnifier-content" id="magnifier-content">
+                    </div>
+
+                    <div class="ring-background" id="ring-background"></div>
+
+                    <svg class="progress-ring" id="progress-ring" viewBox="0 0 120 120">
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#D5E1FF;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#B0C6FF;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <circle class="progress-ring__circle" id="progress-ring-circle" r="57" cx="60" cy="60"></circle>
+                    </svg>
+
+                    <div class="blob" id="progress-ring-blob">
+                        <svg class="progress-ring" viewBox="0 0 643 640">
+                            <path class="progress-ring__path-irregular"
+                                d="M602.569 322.582C614.708 417.269 582.024 487.308 527.773 533.929C473.19 580.835 396.173 604.501 319.5 604.501C168.397 604.501 58.5262 485.888 36.4252 320.376C25.716 240.175 51.2082 177.541 100.572 131.197C151.88 83.0289 229.551 51.9756 320.751 38.4083C373.51 30.5596 417.298 35.809 453.424 51.5725C489.523 67.3239 518.597 93.8455 541.516 129.588C572.811 178.394 592.528 244.263 602.569 322.582Z" />
+                        </svg>
+                    </div>
+                </div>
+                <div id="message-container"></div>
+            </div>
+
+            <!-- 操作台，初始隐藏 -->
+
+            <div id="frame-console" class="frame hidden">
+                <div class="frame-console-left">
+                    <div class="newsroom-container">
+                        <img src="image/frame-console/close1.svg" alt="Close Icon" class="close-icon">
+                        <img src="image/frame-console/Today's Newsroom.svg" alt="Today's Newsroom"
+                            class="newsroom-title">
+                    </div>
+
+                    <div class="image-container">
+                        <img id="displayed-image" src="" alt="Display Image">
+                    </div>
+                </div>
+                <div class="frame-console-right">
+                    <div class="content-container">
+                        <div class="progress-box">
+                            <div class="slider-container">
+                                <div class="dashed-line">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div> <!-- 虚线 -->
+                                <div class="slider-track"></div>
+                                <div class="slider-handle"></div>
+                                <div class="slider-points">
+                                    <div class="slider-point" data-index="0"></div>
+                                    <div class="slider-point" data-index="1"></div>
+                                    <div class="slider-point" data-index="2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-container">
+                        <button class="button button1" data-type="government"></button>
+                        <button class="button button2" data-type="enterprise"></button>
+                        <button class="button button3" data-type="public"></button>
+                        <button class="button button4" data-type="objective"></button>
+                    </div>
+                </div>
+                <div class="ok-button">
+                    <img src="/image/frame-console/ok.png" alt="ok Image" class="ok-image">
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div id="frame-News" class="frame hidden">
+            <!-- 新闻台 -->
+            <div class="frame-TodaysNews">
+                <div class="frame-TodaysNews-left">
+                    <div class="TodayNews-container">
+                        <img src="image\frame-News\close2.svg" alt="Close Icon" class="close2-icon">
+                        <img src="image\frame-News\Today's News.svg" alt="Today's Newsroom" class="TodayNews-title">
+                    </div>
+                    <div class="textimage-container">
+                        <img id="news-text-image" src="" alt="News Text">
+                    </div>
+                </div>
+
+                <div class="frame-TodaysNews-right">
+                    <div class="TodaysNews-right-top">
+                        <img src="image\frame-News\map1-News1.png" alt="Top Left Image">
+                        <img src="image\frame-News\map1-News2.png" alt="Top Right Image">
+                    </div>
+                    <div class="TodaysNews-right-bottom">
+                        <div class="imagegif-container">
+                            <div class="image-wrapper">
+                                <img class="static-image" src="image\frame-News\map1-News3.png" alt="Bottom Image">
+                                <div class="gif-overlay"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 评论区 -->
+            <div class="frame-Comments">
+                <div class="First-Comments">
+                    <div class="Comments-Title">
+                        <img src="image\frame-News\plus-icon.svg" alt="Plus icone">
+                        <img src="image\frame-News\Comments.svg" alt="Comments Image">
+                    </div>
+                    <div class="First-Comment">
+                        <img src="" alt="Map1-Comment1 Image">
+                    </div>
+                </div>
+                <div class="Comments">
+                    <img src="" alt="Map1-Comment2 Image">
+                </div>
+                <div class="Comments">
+                    <img src="" alt="Map1-Comment3 Image">
+                </div>
+            </div>
+        </div>
+
+
+        <div id="frame-Eed">
+            <div class="frame-Epilogue">
+                <div class="Epilogue-Era1" style="background-image: url('image/frame-Eed/background_frame1.png'); background-size: 120%; background-position: center; background-repeat: no-repeat;">
+                    <img src="image/frame-Eed/Epilogue-Era1.svg" alt="Epilogue-Era1 Image">
+                </div>
+                <div class="Epilogue-Era2" style="background-image: url('image/frame-Eed/background_frame2.png'); background-size: 120%; background-position: center; background-repeat: no-repeat;">
+                    <img src="image/frame-Eed/Epilogue-Era2.svg" alt="Epilogue-Era2 Image">
+                </div>
+                <div class="Epilogue-Era3" style="background-image: url('image/frame-Eed/background_frame2.png'); background-size: 120%; background-position: center; background-repeat: no-repeat;">
+                    <img src="image/frame-Eed/Epilogue-Era3.svg" alt="Epilogue-Era3 Image">
+                </div>
+                <div class="Epilogue-Era4" style="background-image: url('image/frame-Eed/background_frame3.png'); background-size: 120%; background-position: center; background-repeat: no-repeat;">
+                    <img src="image/frame-Eed/Epilogue-Era4.svg" alt="Epilogue-Era4 Image">
+                </div>
+            </div>
+            <div class="End-icon">
+                <img src="image/frame-Eed/END-icon.svg" alt="End Icon">
+            </div>
+            <div class="Restart-button">
+                <img src="image/frame-Eed/RESTART-icon.svg" alt="Restart Icon">
+            </div>
+            <div class="Exit-button">
+                <img src="image/frame-Eed/EXIT-icon.svg" alt="Exit Icon">
+            </div>
+        </div>
+
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

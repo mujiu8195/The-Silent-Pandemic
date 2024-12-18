@@ -1,0 +1,1256 @@
+:root {
+    --dark-blue-color: #32548682;
+    --blue1-color: #A1B8F4;
+    --blue2-color: #B0C6FF;
+    --blue3-color: #D1E3FF;
+    --blue4-color: #C7D3EB;
+    --white: #FFFFFF;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+html {
+    overflow: hidden;
+}
+body {
+
+    font-family: "Inika", sans-serif;
+
+}
+
+/* 界面尺寸，固定为1920x1080 */
+.container {
+    margin: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1920px;
+    height: 1080px;
+    background-color: #ffffff;    /* 设置背景色 */
+    transition: filter 0.3s ease;
+}
+
+/* 所有frame使用固定尺寸 */
+.frame {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    display: none;
+    overflow: hidden;
+}
+
+.frame.active {
+    display: block;
+}
+
+/* 第一个框架 */
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 700;
+    font-size: 128px;
+    line-height: 167px;
+    color: var(--white);
+    text-shadow: -7px -4px 21.7px var(--white), 7px 4px 21.7px var(--dark-blue-color);
+    white-space: nowrap;
+}
+
+/* 第二个框架描述文字父级容器 */
+.description-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1700px;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.description {
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 44px;
+    text-align: center;
+    color: var(--blue1-color);
+    text-shadow: -1px -1px 5.9px var(--white), 1px 1px 4.1px var(--dark-blue-color);
+    margin: 0;
+}
+
+.start-button {
+    position: relative;
+    top: 73%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 100px;
+    background: var(--white);
+    box-shadow: 0px -5px 19px var(--white), 14px 11px 44.1px rgba(50, 84, 134, 0.2);
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+.start-button:hover {
+    background: #FFFFFF;
+    box-shadow: inset 0px 11px 19px var(--white), inset 15px 8px 40.9px rgba(50, 84, 134, 0.1);
+}
+
+.start-button:active {
+    background: var(--white);
+}
+
+
+.start-button img {
+    width: 60%; /* 默认设置图片大小 */
+    transition: all 0.3s ease; /* 添加过渡效果 */
+}
+
+/* 鼠标悬浮时 */
+.start-button:hover img {
+    content: url('image/frame-1/START-hover.svg');
+    width: 55%; /* 增大图片的尺寸，或根据需要调整 */
+}
+
+/* 鼠标点击时 */
+.start-button:active img {
+    content: url('image/frame-1/START-active.svg');
+    width: 55%; /* 鼠标点击时缩小图片，或者调整为其他尺寸 */
+}
+
+.box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.page {
+    display: none;
+    /* Initially hidden */
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.page.open {
+    display: block;
+    /* Show the page when it's active */
+}
+#frame-map {
+    transition: opacity 0.3s ease;
+}
+
+#frame-map #progress-bar,
+#frame-map .box,
+#frame-map #click-box-container,
+#frame-map #message-container {
+    transition: filter 0.3s ease;
+}
+/* Individual map styles with images */
+#map1 {
+    background-image: url('image/map/frame1.png');
+}
+
+#map2 {
+    background-image: url('image/map/frame2.PNG');
+}
+
+#map3 {
+    background-image: url('image/map/frame3.PNG');
+}
+
+
+
+
+/* 进度条样式 */
+#progress-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1703px;
+    height: 50px;
+    filter: drop-shadow(0px 4px 3px rgba(50, 84, 134, 0.2));
+    z-index: 2;
+}
+
+/* 圆圈样式 */
+.circle {
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: 1px solid var(--blue4-color);
+    background: var(--white);
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s, border 0.3s, color 0.3s;
+}
+
+.check {
+    width: 24px;
+    height: 24px;
+}
+
+#circle-1 {
+    position: absolute;
+    top: 50%;
+    left: 3%;
+    transform: translate(-50%, -50%);
+}
+
+#circle-2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#circle-3 {
+    position: absolute;
+    top: 50%;
+    left: 98%;
+    transform: translate(-50%, -50%);
+}
+
+.number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--blue2-color);
+}
+
+/* 激活状态的圆圈样式 */
+.active-circle {
+    background: var(--blue2-color);
+    border: 1px solid var(--white);
+}
+
+.active-circle .number {
+    color: var(--white);
+}
+
+/* 选项条状 */
+#progress-bar .divider {
+    width: 776.5px;
+    height: 0px;
+    border: 4px solid #C7D3EB;
+    z-index: 1;
+}
+
+#divider-1 {
+    position: absolute;
+    top: 50%;
+    left: 27%;
+    transform: translate(-50%, -50%);
+}
+
+#divider-2 {
+    position: absolute;
+    top: 50%;
+    left: 74%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+
+
+/* 进度环容器，跟随鼠标居中 */
+.progress-ring-container {
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    pointer-events: none;
+    /* 禁用鼠标事件 */
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease;
+}
+
+/* 进度环加载中效果 */
+.progress-ring-container.active {
+    transform-origin: center;
+    transform: translate(-50%, -50%) scale(1.5);
+}
+
+
+.magnifier {
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    pointer-events: none;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+
+/* 放大镜下层内容的放大效果 */
+.magnifier-content {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+
+    transform-origin: top left;
+    object-fit: cover;
+
+}
+
+
+
+
+/* 环背景，居中于progress-ring-container */
+.ring-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 115%;
+    height: 115%;
+    border: 6px solid #ffffff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(-8px -9px 17.3px rgba(255, 255, 255, 0.5)) drop-shadow(5px 2px 24.3px rgba(50, 84, 134, 0.2));
+}
+
+/* 进度环样式，居中于progress-ring-container */
+.progress-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+}
+
+
+/* 进度环的圆圈样式 */
+.progress-ring__circle {
+    fill: transparent;
+    stroke: url(#gradient);
+    stroke-width: 4;
+    transition: stroke-dasharray 0.2s ease;
+    stroke-linecap: round;
+    transform: rotate(90deg);
+    /* 旋转90度，改变起点 */
+    transform-origin: 50% 50%;
+    /* 设置旋转的中心点为圆心 */
+}
+
+/* 异形路径的样式 */
+.progress-ring__path-irregular {
+    fill: none;
+    stroke: url(#gradient);
+    /* 使用相同的渐变颜色 */
+    stroke-width: 19;
+    stroke-linecap: round;
+    transition: stroke-dasharray 0.35s ease;
+}
+
+/* 添加旋转动画 */
+.blob {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(1.1);
+    animation: spin infinite 5s linear;
+}
+
+/* 旋转动画定义 */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg) scale(1.1);
+    }
+
+    100% {
+        transform: rotate(360deg) scale(1.1);
+    }
+}
+
+/* 当加载完成后，显示不规则路径 */
+.show-irregular {
+    display: block;
+}
+
+/* 隐藏规则路径 */
+.hide-regular {
+    display: none;
+}
+
+
+
+
+
+/* 设置消息框的样式 *//* 设置消息框的样式 *//* 设置消息框的样式 *//* 设置消息框的样式 *//* 设置消息框的样式 */
+.accordion-summary {
+    position: absolute;
+    width: 900px;
+    height: 99px;
+    background: #FFFFFF;
+    opacity: 0;
+    box-shadow: -17px -17px 28px rgba(255, 255, 255, 0.8), 4px 0px 33px rgba(50, 84, 134, 0.2);
+    border-radius: 34px;
+    padding: 0 30px; /* Only horizontal padding */
+    font-size: 18px;
+    line-height: 99px; /* Match the line-height to the height of the box */
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1s ease forwards, fadeOut 4s 3s ease forwards;
+    transition: top 0.6s ease;
+    overflow: hidden; /* Ensure text stays within bounds */
+}
+
+
+/* 添加点击区域方块样式 */
+.click-box {
+    width: 130px;
+    height: 130px;
+    background-color: #42424200;
+    border-radius: 10px;
+    position: absolute;
+    top: 40%;
+    cursor: pointer;
+    z-index: 20;
+}
+
+
+/* 渐显动画 */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* 淡出动画 */
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+
+
+
+
+.blur {
+    filter: blur(5px);
+    transition: filter 0.3s ease;
+}
+
+
+/* frame-console *//* frame-console *//* frame-console *//* frame-console *//* frame-console */
+#frame-console {
+    display: none;
+    flex-direction: row; /* 确保子元素水平排列 */
+    justify-content: center;
+    align-items: center;
+    width: 1920px;
+    height: 1080px;
+    margin: 0px auto;
+    top: 0;
+    left: 0;
+
+}
+
+.frame-console.active {
+    display: flex;
+    z-index: 2; /* 图层 */
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+
+}
+
+
+
+.frame-console-left,
+.frame-console-right {
+    height: 950px;
+    background: var(--white);
+    box-shadow: 2px 4px 25px var(--blue3-color);
+    border-radius: 25px;
+    
+}
+
+.frame-console-left {
+    width: 916px;
+}
+.newsroom-container {
+    position: relative;
+    top: 4%; /* 使用百分比移动，基于 .frame-console-left */
+    left: 2%;
+    display: flex;
+
+    margin-bottom: 20px;
+}
+.image-container {
+    width: 90%;
+    height: 90%;
+    position: relative; /* 绝对定位，不影响布局 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 居中对齐 */
+}
+
+
+.close-icon {
+    width: 91.2px;
+    height: 51.2px;
+    margin-bottom: 10px; /* 图标与标题图片之间的间距 */
+}
+
+.newsroom-title {
+    width: 407px;
+    height: auto;
+    /* 这里没有其他文本样式，因为这是图片 */
+}
+
+.imagegif-container {
+    width: 100%;
+    height: 100%;
+    position: relative; /* 保持原有的定位 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 保持原有的居中对齐 */
+    overflow: hidden; /* 仅添加这一个属性用于内阴影效果 */
+
+}
+
+/* 添加新的内阴影层 */
+.imagegif-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    box-shadow: 
+        inset 0px 4px 4px rgba(0, 0, 0, 0.25); /* X:0, Y:4, Blur:4, Color:#000000 25% */
+}
+
+.imagegif-container:hover::after {
+    opacity: 1;
+}
+
+
+
+
+
+.frame-console-right {
+    width: 777px;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column; /* 使子元素垂直排列 */
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.content-container {
+    margin-top: -300px;
+    /* 调整这个值以同步移动 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    /* 保持 progress-box 和 button-container 之间的间距 */
+}
+
+
+.progress-box {
+    background: linear-gradient(137.71deg, #FFFFFF 4.64%, rgba(243, 245, 250, 0.7) 95.71%);
+    box-shadow: 0px 4px 4px rgba(50, 84, 134, 0.25);
+    border-radius: 4px;
+    width: 676px;
+    padding: 20px 20px; /* 保持一致的内边距 */
+    box-sizing: border-box;
+    height: 165px;
+}
+
+
+
+.slider-container {
+    width: 550px; /* 滑动条的宽度 */
+    height: 4px;
+    position: relative; /* 相对于父容器进行定位 */
+    margin: 70px auto 70px auto; /* 调整上方的间距值 */
+    cursor: pointer;
+    box-shadow: 0px 1px 1px #FFFFFF, inset 0px 1px 1px rgba(50, 84, 134, 0.25);
+    background-color: rgba(50, 84, 134, 0.25);
+}
+
+
+
+
+.dashed-line {
+    position: absolute;
+    top: -40px; /* 虚线放置在容器顶部 */
+    width: 100%;
+    height: 10px;
+    display: flex;
+    justify-content: space-between; /* 使方块之间均匀分布 */
+}
+
+.dashed-line::before,
+.dashed-line::after {
+    content: '';
+    width: 3px; /* 顶端的方块变细 */
+    height: 100%;
+    background-color: #96a7c1; /* 颜色保持一致 */
+    margin: 0 5px; /* 增加左右伪元素的间距，使中间方块离两端更远 */
+}
+
+.dashed-line div {
+    width: 6px; /* 中间的方块宽度 */
+    height: 100%;
+    background-color: #96a7c1;
+    margin: 0 10px; /* 增加方块之间的间距 */
+}
+
+.slider-track {
+    position: absolute;
+    height: 100%;
+    background-color: #a7beff; /* 滑过后的轨道颜色 */
+    transition: width 0.3s;
+}
+
+.slider-handle {
+    width: 100px; /* 根据 slider.svg 的尺寸调整宽度 */
+    height: 100px; /* 根据 slider.svg 的尺寸调整高度 */
+    background-image: url('/image/frame-console/slider.svg'); /* 使用 slider.svg 作为背景图像 */
+    background-size: contain; /* 确保图像完全显示 */
+    background-repeat: no-repeat;
+    background-position: center; /* 图像居中 */
+    position: absolute;
+    top: -40px; /* 调整位置以适应新的滑动条边框 */
+    left: 0;
+    cursor: pointer;
+    transition: left 0.3s;
+    z-index: 10; /* 确保手柄位于所有图层之上 */
+    transform: translateX(-50%); /* 水平居中对齐 */
+}
+
+.slider-points {
+    position: absolute;
+    top: 50%; /* 将点置于滑动条的中心 */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%); /* 垂直居中对齐 */
+}
+
+.slider-point {
+    width: 12px;
+    height: 12px;
+    background: #C5CEDB; /* 初始点背景颜色 */
+    box-shadow: inset 0px 1px 1.3px rgba(50, 84, 134, 0.25); /* 点阴影 */
+    border-radius: 50%;
+    transition: background-color 0.3s; /* 平滑颜色过渡 */
+}
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    justify-items: center;
+    width: 100%;
+    max-width: 90%; /* 控制按钮区域宽度，给左右留出足够的间距 */
+}
+
+.button {
+    width: 161px;
+    height: 161px;
+    background: linear-gradient(137.71deg, #FFFFFF 4.64%, rgba(243, 245, 250, 0.7) 95.71%);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 1px 4px 8.4px rgba(50, 84, 134, 0.2), inset 4px 4px 4px rgba(255, 255, 255, 0.25);
+    background-size: 90%; /* 初始图片大小 */
+    background-position: center;
+    background-repeat: no-repeat; /* 防止图片重复 */
+    margin: 0 5px;
+}
+
+/* 初始背景图 */
+.button1 {
+    background-image: url('/image/frame-console/Government Button.svg');
+}
+
+.button2 {
+    background-image: url('/image/frame-console/Enterprise Button.svg');
+}
+
+.button3 {
+    background-image: url('/image/frame-console/Public Button.svg');
+}
+
+.button4 {
+    background-image: url('/image/frame-console/Objective Button.svg');
+}
+
+/* 按下状态背景图 */
+.button.active.button1 {
+    background-image: url('/image/frame-console/Government Button after.svg');
+    background-size: 80%;
+}
+
+.button.active.button2 {
+    background-image: url('/image/frame-console/Enterprise Button after.svg');
+    background-size: 80%;
+}
+
+.button.active.button3 {
+    background-image: url('/image/frame-console/Public Button after.svg');
+    background-size: 80%;
+}
+
+.button.active.button4 {
+    background-image: url('/image/frame-console/Objective Button after.svg');
+    background-size: 80%;
+}
+
+.ok-button {
+    position: absolute;
+    top: 80%;
+    left:79%;
+
+    width: 240px;
+    height: 90px;
+    background: linear-gradient(60deg, #FFFFFF -1.34%, rgba(243, 245, 250, 0.8) 133.78%);
+    box-shadow: 0px 0px 1px rgba(162, 193, 255, 0.4), 4px 4px 5px rgba(50, 84, 134, 0.15), 1px 6px 1.3px rgba(50, 84, 134, 0.1), 3px 8px 6px rgba(210, 210, 210, 0.32);
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+
+}
+.ok-button:hover {
+    
+    background: linear-gradient(60deg, #ffffff -1.34%, rgba(243, 245, 250, 0.8) 133.78%);
+    box-shadow: inset 0px 0px 1px rgba(225, 225, 225, 0.4), inset 4px 4px 5px rgba(50, 84, 134, 0.15), inset 1px 6px 1.3px rgba(50, 84, 134, 0.1), inset 3px 8px 6px rgba(210, 210, 210, 0.32);
+
+}
+
+.ok-button:active {
+    box-shadow: inset 0px 0px 1px rgba(225, 225, 225, 0.4), inset 4px 4px 5px rgba(50, 84, 134, 0.15), inset 1px 6px 1.3px rgba(50, 84, 134, 0.1), inset 3px 8px 6px rgba(210, 210, 210, 0.32);
+
+}
+
+.ok-image {
+    width: auto;
+    height: auto;
+}
+
+
+.ok-button:hover .ok-image {
+    content: url('/image/frame-console/ok-active.png'); /* 悬浮时切换到的图片 */
+  }
+  
+  .ok-button:active .ok-image {
+    content: url('/image/frame-console/ok-active.png'); /* 点击时切换到的图片 */
+  }
+
+
+
+  .box .page {
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.box .page.open {
+    opacity: 1;
+}
+
+#frame-map, #frame-2 {
+    transition: all 0.5s ease-in-out;
+}
+
+/* 确保图片也有过渡效果 */
+.box .page img {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.box .page.open {
+    opacity: 1;
+}
+  #frame-map, #frame-2 {
+    transition: opacity 0.5s ease-in-out;
+}
+
+
+/* frame-TodaysNews frame-TodaysNews frame-TodaysNews frame-TodaysNews frame-TodaysNews frame-TodaysNews frame-TodaysNews */
+
+#frame-News {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 3; /* 添加这一行，值要大于progress-bar的z-index: 2 */
+    transition: opacity 0.3s ease;
+}
+
+  .frame-TodaysNews,
+        .frame-Comments {
+            transition: transform 0.3s ease-in-out;
+            /* 平滑过渡 */
+        }
+
+        /* 所有方框的样式 */
+        .frame-TodaysNews {
+            display: flex;
+            height: 950px;
+            width: 1695px;
+            background: var(--white);
+            box-shadow: 2px 4px 25px var(--blue3-color);
+            border-radius: 25px;
+            padding: 20px;
+
+            margin-top: 820px;
+            margin-bottom: 20px;
+            /* 给大方框和小方框之间添加间距 */
+
+        }
+
+        .frame-TodaysNews-left,
+        .frame-TodaysNews-right {
+            height: 910px;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-left: 10px;
+        }
+
+        .frame-TodaysNews-left {
+            width: 760px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .frame-TodaysNews-right {
+            width: 769px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            gap: 25px;
+            padding-bottom: 80px;
+            margin-top: 30px;  /* 添加这行来向下移动 */
+        }
+
+
+
+        /* 左边的图标 */
+        /* 左边的图标 */
+        /* 左边的图标 */
+        /* 左边的图标 */
+        /* 左边的图标 */
+        /* 左边的图标 */
+
+        .TodayNews-container {
+            display: flex;
+            justify-content: flex-start;
+            /* 将子元素向左对齐 */
+            align-items: center;
+            /* 垂直居中对齐 */
+            gap: 25px;
+            /* 图片之间添加间距（可选） */
+            position: relative;
+            left: -7px;
+            top: 5px;
+        }
+
+        /* x的图片 */
+        .close2-icon {
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            /*切换鼠标效果 */
+            
+        }
+
+        /* TodayNews的图片 */
+        .TodayNews-title {
+            width: 300px;
+            height: 60px;
+            position: relative;
+            top: 2px;
+        }
+
+        /* 放新闻内容图片的地方 */
+        .textimage-container {
+            position: relative;
+            top: -40px;
+            /* 向上移动 20px */
+        }
+
+
+
+
+        /* 右上的框架 */
+        .TodaysNews-right-top {
+            display: flex;
+            align-items: flex-end;
+            gap: 20px;
+        }
+
+        .TodaysNews-right-top img:first-child {
+            position: relative;
+            top: 0;
+            left: 0;
+            filter: blur(4px);
+            /* 初始时设置模糊 */
+            transition: filter 0.3s ease;
+            /* 添加平滑过渡效果 */
+        }
+
+        .TodaysNews-right-top img:first-child:hover {
+            filter: blur(0);
+            /* 鼠标悬停时取消模糊效果 */
+        }
+
+        .TodaysNews-right-top img:last-child {
+            position: relative;
+            top: 10px;
+            right: 0;
+            filter: blur(2px);
+        }
+
+        .TodaysNews-right-top img:last-child:hover {
+            filter: blur(0);
+            /* 鼠标悬停时取消模糊效果 */
+        }
+
+        /* 右下的框架 */
+        .TodaysNews-right-bottom {
+            display: flex;
+            /* 使用 Flexbox 布局 */
+            justify-content: center;
+            /* 子元素水平居中 */
+            align-items: center;
+            /* 子元素垂直居中 */
+
+        }
+
+        .TodaysNews-right-bottom img {
+            max-width: 100%;
+            height: auto;
+            transition: opacity 0.3s ease;
+        }
+        
+        .TodaysNews-right-bottom img:hover {
+            content: var(--gif-url);
+        }
+        
+
+
+        /* 小方框的样式 */
+        .First-Comments,
+        .Comments {
+            background: var(--white);
+            box-shadow: 2px 4px 25px var(--blue3-color);
+            border-radius: 25px;
+            padding: 20px;
+            width: 1695px;
+
+            margin-top: 20px;
+            /* 小方框与大方框之间的间距 */
+            margin-bottom: 15px;
+            /* 每个小方框之间的间距 */
+        }
+
+
+        .First-Comments {
+            height: 220px;
+        }
+
+        .Comments {
+            height: 170px;
+            display: flex;
+            /* 设置容器为 flex 布局 */
+            align-items: center;
+            /* 垂直居中 */
+            padding-top: 20px;
+            /* 距离容器上边缘 20px */
+            box-sizing: border-box;
+            /* 确保 padding 不影响宽高 */
+            padding-left: 70px;
+        }
+
+        .Comments-Title {
+            display: flex;
+            /* 使用 Flexbox 布局 */
+            align-items: center;
+            /* 垂直方向居中对齐 */
+            padding-left: 20px;
+            gap: 30px;
+            /* 可以设置图标之间的间距 */
+        }
+
+        .Comments-Title img:first-child {
+            width: 60px;
+            height: 60px;
+
+        }
+
+        .Comments-Title img:last-child {
+            width: 200px;
+            height: 60px;
+
+        }
+
+       
+        .First-Comment {
+            position: relative; /* 让 First-Comment 脱离文档流 */
+            left: 50px; /* 可以调整为 0，确保它不受 padding-left 的影响 */
+            top: 40px; /* 调整为需要的距离 */
+        }
+
+
+
+        
+
+
+
+
+
+
+
+
+        #frame-Eed {
+            position: absolute;
+            width: 1920px;
+            height: 1080px;
+            display: none;  /* 初始隐藏 */
+            background-color: #ffffff;  /* 设置背景色 */
+        }
+        
+
+        .End-icon,
+        .Restart-button,
+        .Exit-button {
+            display: none;
+            /* 初始隐藏 */
+            position: absolute;
+            /* 使用绝对定位 */
+            z-index: 4;
+        }
+
+        /* 调整 .End-icon 的位置 */
+        .End-icon {
+            top: 20%;
+            /* 距离顶部 20% */
+            left: 50%;
+            /* 水平居中 */
+            transform: translate(-50%, 0);
+            /* 水平居中修正 */
+            width: 200px;
+            /* 调整图标宽度 */
+            height: 200px;
+            /* 调整图标高度 */
+        }
+
+        /* 调整 .Restart-button 的位置 */
+        .Restart-button {
+
+            bottom: 20%;
+            /* 距离底部 20% */
+            left: 30%;
+            /* 距离左侧 30% */
+
+            width: 300px;
+            /* 按钮宽度 */
+            height: 100px;
+            /* 按钮高度 */
+            background: var(--white);
+            /* 按钮背景 */
+            box-shadow: 0px -5px 19px var(--white), 14px 11px 44.1px rgba(50, 84, 134, 0.2);
+            border-radius: 28px;
+            /* 圆角 */
+
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .Restart-button:hover {
+            background: #FFFFFF;
+            box-shadow: inset 0px 11px 19px var(--white), inset 15px 8px 40.9px rgba(50, 84, 134, 0.1);
+            
+        }
+
+        .Restart-button:active {
+            background: var(--white);
+        }
+
+        .Restart-button img {
+            width: 70%; /* 默认设置图片大小 */
+            transition: all 0.3s ease; /* 添加过渡效果 */
+        }
+        
+        /* 鼠标悬浮时 */
+        .Restart-button:hover img {
+            content: url('image/frame-Eed/RESTART-hover.svg');
+            width: 60%; /* 增大图片的尺寸，或根据需要调整 */
+        }
+        
+        /* 鼠标点击时 */
+        .Restart-button:active img {
+            content: url('image/frame-Eed/RESTART-active.svg');
+            width: 60%; /* 鼠标点击时缩小图片，或者调整为其他尺寸 */
+        }
+
+
+
+        /* 调整 .Exit-button 的位置 */
+        .Exit-button {
+            bottom: 20%;
+            /* 距离底部 20% */
+            right: 30%;
+            /* 距离右侧 30% */
+
+            width: 300px;
+            /* 按钮宽度 */
+            height: 100px;
+            /* 按钮高度 */
+            background: var(--white);
+            /* 按钮背景 */
+            box-shadow: 0px -5px 19px var(--white), 14px 11px 44.1px rgba(50, 84, 134, 0.2);
+            border-radius: 28px;
+            /* 圆角 */
+
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .Exit-button:hover {
+            background: #FFFFFF;
+            box-shadow: inset 0px 11px 19px var(--white), inset 15px 8px 40.9px rgba(50, 84, 134, 0.1);
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .Exit-button:active {
+            background: var(--white);
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+    
+        }
+
+        .Exit-button img {
+            width: 45%; /* 默认设置图片大小 */
+            transition: all 0.3s ease; /* 添加过渡效果 */
+        }
+        
+        /* 鼠标悬浮时 */
+        .Exit-button:hover img {
+            content: url('image/frame-Eed/EXIT-hover.svg');
+            width: 35%; /* 增大图片的尺寸，或根据需要调整 */
+        }
+        
+        /* 鼠标点击时 */
+        .Exit-button:active img {
+            content: url('image/frame-Eed/EXIT-active.svg');
+            width: 35%; /* 鼠标点击时缩小图片，或者调整为其他尺寸 */
+        }
+
+
+        .frame-Epilogue {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+        }
+
+        .frame-Epilogue div {
+            position: absolute;
+            /* Use absolute positioning */
+            top: 50%;
+            /* Center vertically within the container */
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            /* Center horizontally within the container */
+            transform: translate(-50%, -50%);
+            /* Adjust to center the element */
+            z-index: 4;
+            /* Ensure that images stack on top of each other */
+        }
+
+
+        /* Initially hide Epilogue-Era2, Epilogue-Era3, and Epilogue-Era4 */
+        .Epilogue-Era2,
+        .Epilogue-Era3,
+        .Epilogue-Era4 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden;
+            /* Make them invisible */
+            opacity: 0;
+            /* Fully transparent */
+            filter: blur(10px);
+            /* Blur them initially */
+            transition: all 2s ease;
+            /* Smooth transition for opacity and blur */
+            
+        }
+
+        .Epilogue-Era1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            visibility: visible;
+            /* Make the first image visible */
+            opacity: 1;
+            /* Fully visible */
+            filter: blur(0);
+            /* No blur */
+            transition: all 2s ease;
+            /* Smooth transition for opacity and blur */
+        }
+
+        
